@@ -24,14 +24,18 @@
     <h2>Załóż konto</h2>
 
     <form:form method="post" modelAttribute="registerDto">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="form-group">
             <form:input  path="email" type="email" name="email" placeholder="Email" />
+            <form:errors path="email" cssStyle="color: red" element="div"/>
         </div>
         <div class="form-group">
             <form:input  path="password" type="password" name="password" placeholder="Hasło" />
+            <form:errors path="password" cssStyle="color: red" element="div"/>
         </div>
         <div class="form-group">
-            <input type="password" name="confirmPassword" placeholder="Powtórz hasło" />
+            <form:input path="confirmPassword"  type="password" name="confirmPassword" placeholder="Powtórz hasło" />
+            <form:errors path="confirmPassword" cssStyle="color: red" element="div"/>
         </div>
 
         <div class="form-group form-group--buttons">

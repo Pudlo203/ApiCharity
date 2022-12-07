@@ -140,102 +140,121 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street" id="street" type="text"/> </label>
+                            <form:label path="street"> Ulica
+                                <form:input path="street" id="street" type="text"/>
+                                <form:errors path="street" cssStyle="color : red"/>
+                            </form:label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city" id="city" type="text" /> </label>
+                            <form:label path="city"> Miasto
+                                <form:input path="city" id="city" type="text" />
+                                <form:errors path="city" cssStyle="color : red"/>
+                            </form:label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label>
-                                Kod pocztowy <form:input path="zipCode" id="zipCode" type="text"/>
-                            </label>
+                            <form:label path="zipCode">Kod pocztowy
+                                <form:input path="zipCode" id="zipCode" type="text"
+                                 pattern="^\d{2}-\d{3}$" maxlength="6"/>
+                                <form:errors path="zipCode" cssStyle="color : red"/>
+                            </form:label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label>
-                                Numer telefonu <input id="phone" type="phone" name="phone"/>
-                            </label>
+                            <form:label path="phone">Numer telefonu
+                                <form:input id="phone" type="phone" name="phone" path="phone" pattern="[0-9]{9}" maxlength="9"/>
+                                <form:errors path="phone" cssStyle="color : red"/>
+                            </form:label>
                         </div>
                     </div>
 
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data
-                                <form:input path="pickUpDate" id="date" type="date"
-                                                     name="pick_up_date"/> </label>
+                            <form:label path="pickUpDate"> Data
+                                <form:input path="pickUpDate" id="date" type="date" name="pick_up_date"/>
+                                <form:errors path="pickUpDate" cssStyle="color : red"/>
+                            </form:label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina
-                                <form:input path="pickUpTime" id="time" type="time"
-                                                        name="pickUpTime"/> </label>
+                            <form:label path="pickUpTime"> Godzina
+                                <form:input path="pickUpTime" id="time" type="time" name="pickUpTime"/>
+                                <form:errors path="pickUpTime" cssStyle="color : red"/>
+                            </form:label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label>
-                                Uwagi dla kuriera
-                                <form:textarea path="pickUpComment" id="comment" type="textarea" name="pick_up_comment"
-                                               rows="5"/>
-                            </label>
+                            <form:label path="pickUpComment">Uwagi dla kuriera
+                                <form:textarea path="pickUpComment" id="comment" type="textarea" name="pick_up_comment" rows="5"/>
+                            </form:label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="button"  id="summary" class="btn next-step">Dalej</button>
+<%--                    <form:button type="button"  id="summary" class="btn next-step">Dalej</form:button>--%>
+                    <form:button class="btn">Dalej</form:button>
                 </div>
             </div>
 
-            <!-- STEP 6 -->
-            <div data-step="5">
-                <h3>Podsumowanie Twojej darowizny</h3>
+<%--            <!-- STEP 6 -->--%>
+<%--            <div data-step="5">--%>
+<%--                <h3>Podsumowanie Twojej darowizny</h3>--%>
 
-                <div class="summary">
-                    <div class="form-section">
-                        <h4>Oddajesz:</h4>
-                        <ul>
-                            <li>
-                                <span class="icon icon-bag"></span>
-                                <span id="quantity" class="summary--text"></span>
-                            </li>
+<%--                <div class="summary">--%>
+<%--                    <div class="form-section">--%>
+<%--                        <h4>Oddajesz:</h4>--%>
+<%--                        <ul>--%>
+<%--                            <li>--%>
+<%--                                <span class="icon icon-bag"></span>--%>
+<%--                                <span id="quantity" class="summary--text">--%>
+<%--                                     Ilość worków: ${donation.quantity} <br>--%>
+<%--                                     Kategorie:--%>
+<%--                                    <c:forEach var="category" items="${donation.categories}">--%>
+<%--                                        ${category.name},--%>
+<%--                                    </c:forEach>--%>
+<%--                                </span>--%>
 
-                            <li>
-                                <span class="icon icon-hand"></span>
-                                <span id="institution" class="summary--text"></span>
-                            </li>
-                        </ul>
-                    </div>
+<%--                            </li>--%>
 
-                    <div class="form-section form-section--columns">
-                        <div class="form-section--column">
-                            <h4>Adres odbioru:</h4>
-                            <ul>
-                                <li id="where1"></li>
-                                <li id="where2"></li>
-                                <li id="where3"></li>
-                                <li id="where4"></li>
-                            </ul>
-                        </div>
+<%--                            <li>--%>
+<%--                                <span class="icon icon-hand"></span>--%>
+<%--                                <span id="institution" class="summary--text">--%>
+<%--                                    Dla: ${donation.institution.name}--%>
+<%--                                </span>--%>
+<%--                            </li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
 
-                        <div class="form-section--column">
-                            <h4>Termin odbioru:</h4>
-                            <ul>
-                                <li id="when1"></li>
-                                <li id="when2"></li>
-                                <li id="when3"></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+<%--                    <div class="form-section form-section--columns">--%>
+<%--                        <div class="form-section--column">--%>
+<%--                            <h4>Adres odbioru:</h4>--%>
+<%--                            <ul>--%>
+<%--                                <li id="where1">${donation.street}</li>--%>
+<%--                                <li id="where2">${donation.city}</li>--%>
+<%--                                <li id="where3">${donation.zipCode}</li>--%>
+<%--                                <li id="where4">tel.: ${donation.phone}</li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
 
-                <div class="form-group form-group--buttons">
-                    <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="submit" class="btn">Potwierdzam</button>
-                </div>
-            </div>
+<%--                        <div class="form-section--column">--%>
+<%--                            <h4>Termin odbioru:</h4>--%>
+<%--                            <ul>--%>
+<%--                                <li id="when1">${donation.pickUpDate}</li>--%>
+<%--                                <li id="when2">${donation.pickUpTime}</li>--%>
+<%--                                <li id="when3">${donation.pickUpComment}</li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+
+<%--                <div class="form-group form-group--buttons">--%>
+<%--                    <button type="button" class="btn prev-step">Wstecz</button>--%>
+<%--                    <button type="submit" class="btn">Potwierdzam</button>--%>
+<%--                </div>--%>
+<%--            </div>--%>
         </form:form>
     </div>
 </section>

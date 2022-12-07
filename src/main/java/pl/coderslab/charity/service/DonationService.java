@@ -1,26 +1,28 @@
 package pl.coderslab.charity.service;
 
 import org.springframework.stereotype.Service;
+import pl.coderslab.charity.dto.DonationDto;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.repository.DonationRepository;
-@Service
-public class DonationService {
 
-    private final DonationRepository donationRepository;
+import java.util.List;
+import java.util.Optional;
 
-    public DonationService(DonationRepository donationRepository) {
-        this.donationRepository = donationRepository;
-    }
 
-    public Integer countAll() {
-        return donationRepository.countAllBags();
-    }
+public interface DonationService {
 
-   public Integer countBags(){
-       return donationRepository.countQuantity();
-   }
+    void add(Donation donation);
 
-    public void add(Donation donation) {
-        donationRepository.save(donation);
-    }
+    List<Donation> getDonations();
+
+    Optional<Donation> get(Long id);
+
+    void delete(Long id);
+
+    Integer countAll();
+
+    Integer countBags();
+
+
+    void update(DonationDto donationDto);
 }

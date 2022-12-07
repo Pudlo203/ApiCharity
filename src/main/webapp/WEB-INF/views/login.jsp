@@ -25,7 +25,7 @@
   <form method="post" modelAttribute="user">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div class="form-group">
-      <input  path="email" type="email" name="email" placeholder="Email" />
+      <input  path="email" type="email" name="username" placeholder="Email" />
     </div>
     <div class="form-group">
       <input path="password" type="password" name="password" placeholder="Hasło" />

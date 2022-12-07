@@ -6,12 +6,15 @@ import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.repository.CategoryRepository;
 
 import java.util.List;
-@Service
-@RequiredArgsConstructor
-public class CategoryService {
+import java.util.Optional;
 
-    private final CategoryRepository categoryRepository;
-    public List<Category> getCategories() {
-        return categoryRepository.findAll();
-    }
+
+public interface CategoryService {
+
+
+    List<Category> getCategories();
+    public void add(Category category);
+    public Optional<Category> get(Long id);
+    public void delete(Long id);
+
 }

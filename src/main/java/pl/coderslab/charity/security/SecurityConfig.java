@@ -21,18 +21,15 @@ public class SecurityConfig {
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/user/**")
-                .authenticated()
-                .and()
-                .formLogin()
+                .antMatchers("/user/**").authenticated()
+               // .antMatchers("/admin/**").authenticated()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+               // .antMatchers("/donation/**").authenticated()
+                .and().formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/user/form")
                 .and().logout().logoutSuccessUrl("/")
                 .permitAll();
-//                .antMatchers("/admin/*").authenticated()
-//                .antMatchers("/app/*").authenticated()
-//                .and().formLogin()
-//                .permitAll();
         return http.build();
     }
 //    @Bean
